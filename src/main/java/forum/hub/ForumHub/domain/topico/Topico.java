@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity(name = "Topico")
 @Table(name = "topicos")
@@ -15,14 +16,14 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensagem;
-    private LocalDate dataCriacao;
+    private LocalDateTime dataCriacao;
     private Boolean status;
     private String autor;
 
     public Topico() {
     }
 
-    public Topico(Long id, String titulo, String mensagem, LocalDate dataCriacao, Boolean status, String autor) {
+    public Topico(Long id, String titulo, String mensagem, LocalDateTime dataCriacao, Boolean status, String autor) {
         this.id = id;
         this.titulo = titulo;
         this.mensagem = mensagem;
@@ -36,7 +37,7 @@ public class Topico {
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
         this.autor = dados.autor();
-        this.dataCriacao = LocalDate.now();
+        this.dataCriacao = LocalDateTime.now();
     }
 
     public void atualizarInformacoes(@Valid DadosAtualizacaoTopico dados) {
@@ -77,11 +78,11 @@ public class Topico {
         this.mensagem = mensagem;
     }
 
-    public LocalDate getDataCriacao() {
+    public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDate dataCriacao) {
+    public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 

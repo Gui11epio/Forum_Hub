@@ -1,6 +1,8 @@
 package forum.hub.ForumHub.domain.usuario;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,6 +30,12 @@ public class Usuario implements UserDetails {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+    }
+
+    public Usuario(DadosCadastroUsuario dados, String senhaCriptografada) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.senha = senhaCriptografada;
     }
 
     public Long getId() {

@@ -4,7 +4,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 
 public record DadosAtualizacaoTopico(
-        @Id Long id,
+        Long id,
         @NotBlank String titulo,
         @NotBlank String mensagem
 ) {

@@ -1,12 +1,12 @@
 package forum.hub.ForumHub.domain.topico;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record DadosDetalhesTopico(
         Long id,
         String titulo,
         String mensagem,
-        LocalDate dataCriacao,
+        LocalDateTime dataCriacao,
         Boolean status,
         String autor
 ) {
